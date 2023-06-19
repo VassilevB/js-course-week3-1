@@ -7,12 +7,27 @@ if (command ==  'turnon') {
 }
 
 else if (command == 'load') {
-    const robotNameArgument = prompt(`Въведи името на роботската ръка`)
-    loadCommand(robotNameArgument);
+
+    // if(SystemObject.isTurnOn()) {
+
+    // const robotNameArgument = prompt(`Въведи името на роботската ръка`);
+    // loadCommand(robotNameArgument); }
+    // else {
+    //     alert(`Трябва да включите системата`);
+    // }}
+
+if (!SystemObject.isTurnOn()) {
+    alert(`Трябва да включите системата`);
+    continue; // това е команда за връщане в началото на цикъла, а не продължаване със следващата стъпка
 }
 
+const robotNameArgument = prompt(`Въведи името на роботската ръка`);
+    loadCommand(robotNameArgument); }
+
+
+
 else if (command == 'unload') {
-    const robotNameArgument = prompt(`Въведи името на роботската ръка`)
+    const robotNameArgument = prompt(`Въведи името на роботската ръка`);
     unloadCommand(robotNameArgument);
 }
 
@@ -23,7 +38,7 @@ else if (command == 'moveX') {
 }
 
 else if (command == 'moveY') {
-    const directionArgument = prompt(`Въведи посока left / right`);
+    const directionArgument = prompt(`Въведи посока up / down`);
     const stepArgument = prompt(`Въведи стъпка `);
     moveCommand ('Y', directionArgument, stepArgument);
 }
